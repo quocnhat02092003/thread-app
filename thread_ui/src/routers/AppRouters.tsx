@@ -15,6 +15,7 @@ import Profile from "../pages/Profile/Profile";
 import PostInfo from "../pages/Post/PostInfo";
 import Notifications from "../pages/Notifications/Notifications";
 import GuestRoute from "./GuestRouters";
+import { BrowserRouter } from "react-router-dom";
 
 const AppRouters: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ const AppRouters: React.FC = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Provider store={store}>
-          <Router>
+          <BrowserRouter>
             <Routes>
               {/*Main layout*/}
               <Route path="/" element={<HomeLayout />}>
@@ -86,7 +87,7 @@ const AppRouters: React.FC = () => {
                 }
               />
             </Routes>
-          </Router>
+          </BrowserRouter>
         </Provider>
       </SnackbarProvider>
     </div>

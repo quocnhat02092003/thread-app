@@ -150,7 +150,7 @@ const Profile = () => {
                   {dataProfile?.username === user.username && (
                     <UploadPost style="w-full border-y px-5 py-5" />
                   )}
-                  {(!dataProfile?.post || dataProfile?.post.length === 1) && (
+                  {!dataProfile?.post && (
                     <NoData message="Chưa có thread nào." />
                   )}
                   {/* Assuming you will map through posts here */}

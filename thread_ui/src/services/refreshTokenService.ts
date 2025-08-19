@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
-const API: AxiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL, withCredentials: true});
+const API: AxiosInstance = axios.create({baseURL: `${process.env.REACT_APP_API_URL}`, withCredentials: true});
 
 API.interceptors.response.use(
   (response) => response,
@@ -12,6 +12,7 @@ API.interceptors.response.use(
 
       try {
         await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/refresh-token`, {}, { withCredentials: true })
+        console.log(process.env.REACT_APP_API_URL);
         return API(originalRequest); // Retry request
       } catch (refreshError) {
         console.error("Refresh token failed");
