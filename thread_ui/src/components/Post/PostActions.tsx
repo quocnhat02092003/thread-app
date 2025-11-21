@@ -72,23 +72,25 @@ const PostActions: React.FC<PostActionsProps> = ({
   };
 
   return (
-    <div className="flex gap-5 mt-2">
+    <div className="flex gap-3 sm:gap-5 mt-2">
       <button
         onClick={likePostAction}
-        className={`flex items-center gap-1 p-2 hover:bg-slate-200 rounded-md ${
+        className={`flex items-center gap-1 p-1.5 sm:p-2 hover:bg-slate-200 rounded-md transition-all duration-300 ${
           isLiked ? "text-red-500" : ""
         }`}
       >
-        <GoHeart /> <small>{likeCount}</small>
+        <GoHeart className="text-base sm:text-lg" />{" "}
+        <small className="text-xs sm:text-sm">{likeCount}</small>
       </button>
       <Link to={"/@" + postUsername + "/post/" + postId}>
-        <button className="flex items-center gap-1 p-2 hover:bg-slate-200 transition-all duration-300 ease-in-out rounded-md">
-          <GoComment /> <small>{comments}</small>
+        <button className="flex items-center gap-1 p-1.5 sm:p-2 hover:bg-slate-200 transition-all duration-300 ease-in-out rounded-md">
+          <GoComment className="text-base sm:text-lg" />{" "}
+          <small className="text-xs sm:text-sm">{comments}</small>
         </button>
       </Link>
-      <button className="flex items-center gap-1 p-2 hover:bg-slate-200 transition-all duration-300 ease-in-out rounded-md">
-        <GoShareAndroid />
-        <small>{shares}</small>
+      <button className="flex items-center gap-1 p-1.5 sm:p-2 hover:bg-slate-200 transition-all duration-300 ease-in-out rounded-md">
+        <GoShareAndroid className="text-base sm:text-lg" />
+        <small className="text-xs sm:text-sm">{shares}</small>
       </button>
     </div>
   );

@@ -73,33 +73,35 @@ const Profile = () => {
   }, [newPost, dataProfile?.id, dataProfile?.username]);
 
   return (
-    <div className="profile">
-      <div className="text-center my-5">
-        <h3>Trang cá nhân</h3>
+    <div className="profile w-full">
+      <div className="text-center my-3 sm:my-5">
+        <h3 className="text-lg sm:text-xl font-semibold">Trang cá nhân</h3>
       </div>
 
-      <div className="w-[90vh] max-w-[90vh] border border-slate-200 rounded-md">
+      <div className="w-full px-2 sm:px-4 border-0 sm:border border-slate-200 rounded-none sm:rounded-md">
         {loading ? (
           <div className="flex justify-center items-center h-[80vh]">
             <CircularProgress color="success" />
           </div>
         ) : (
           <div>
-            <div className="flex flex-col gap-5 mx-2 px-5 py-5">
+            <div className="flex flex-col gap-3 sm:gap-5 mx-0 sm:mx-2 px-3 sm:px-5 py-3 sm:py-5">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
-                  <h3 className="text-xl font-semibold">
+                  <h3 className="text-lg sm:text-xl font-semibold">
                     {dataProfile?.displayName}
                     <FontAwesomeIcon
                       icon={faCircleCheck}
                       style={{ color: "#74C0FC", marginLeft: "5px" }}
                     />
                   </h3>
-                  <p>{dataProfile?.username}</p>
+                  <p className="text-sm sm:text-base">
+                    {dataProfile?.username}
+                  </p>
                 </div>
                 <div>
                   <img
-                    className="w-[100px] min-w-[100px] h-[100px] rounded-[50%] object-cover"
+                    className="w-16 min-w-[64px] h-16 sm:w-[100px] sm:min-w-[100px] sm:h-[100px] rounded-full object-cover"
                     src={dataProfile?.avatarURL}
                     alt="Avatar"
                   />
@@ -108,14 +110,14 @@ const Profile = () => {
               <div>
                 <p className="mt-2 mb-5">{dataProfile?.introduction}</p>
               </div>
-              <div className="flex flex-row justify-between items-center">
-                <p className="mt-2 mb-5 w-[40vh] truncate">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+                <p className="mt-2 mb-3 sm:mb-5 w-full sm:w-[40vh] truncate text-sm sm:text-base">
                   {dataProfile?.follower} người theo dõi •{" "}
                   <Link to={dataProfile?.anotherPath || "#"}>
                     {dataProfile?.anotherPath}
                   </Link>
                 </p>
-                <div className="flex gap-5 items-center">
+                <div className="flex gap-3 sm:gap-5 items-center">
                   <FontAwesomeIcon
                     icon={faChartLine}
                     size="lg"

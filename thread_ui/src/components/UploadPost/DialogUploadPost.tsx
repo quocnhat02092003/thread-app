@@ -34,7 +34,10 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: "90%",
+  maxWidth: 600,
+  maxHeight: "90vh",
+  overflow: "auto",
   bgcolor: "background.paper",
   borderRadius: "10px",
 };
@@ -130,11 +133,11 @@ const DialogUploadPost = (props: DialogUploadPostProps) => {
               className="p-2 hover:bg-slate-200 transition-all duration-300 ease-in-out rounded-md"
             />
           </div>
-          <div className="flex flex-row items-start gap-3 m-2">
+          <div className="flex flex-row items-start gap-2 sm:gap-3 m-2">
             <div className="">
               <Link to="/profile">
                 <img
-                  className="w-[50px] min-w-[50px] h-[50px] rounded-[50%] object-cover"
+                  className="w-10 min-w-[40px] h-10 sm:w-[50px] sm:min-w-[50px] sm:h-[50px] rounded-full object-cover"
                   src={user.avatarURL}
                   alt="Avatar"
                 />
@@ -158,14 +161,14 @@ const DialogUploadPost = (props: DialogUploadPostProps) => {
                   });
                 }}
               />
-              <div className="flex flex-row items-center gap-2 overflow-x-auto mx-5">
+              <div className="flex flex-row items-center gap-2 overflow-x-auto mx-2 sm:mx-5">
                 {previewImages.map((image, index) => (
                   <div className="flex-shrink-0 relative my-2" key={index}>
                     <img
                       key={index}
                       src={image as string}
                       alt={`Preview ${index}`}
-                      className="w-[300px] h-auto max-h-[500px] rounded-md object-contain"
+                      className="w-full sm:w-[300px] h-auto max-h-[300px] sm:max-h-[500px] rounded-md object-contain"
                     />
                     <div className="absolute top-2 right-2 rounded-full cursor-pointer">
                       <FontAwesomeIcon

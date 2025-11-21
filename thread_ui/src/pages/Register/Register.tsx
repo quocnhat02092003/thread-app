@@ -107,11 +107,13 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="register-form">
+    <div className="register-form px-4 sm:px-0">
       {/*Form handle*/}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="flex flex-col items-center w-fit gap-5">
-          <h2>Đăng ký ngay vào tài khoản Threads</h2>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
+        <div className="flex flex-col items-center w-full gap-4 sm:gap-5">
+          <h2 className="text-xl sm:text-2xl font-bold text-center">
+            Đăng ký ngay vào tài khoản Threads
+          </h2>
           <form
             method="post"
             onSubmit={(event: React.FormEvent<HTMLFormElement>) =>

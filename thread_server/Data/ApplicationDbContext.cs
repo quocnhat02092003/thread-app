@@ -62,19 +62,17 @@ public class ApplicationDbContext : DbContext
 
         // User - Follow
         modelBuilder.Entity<Follow>()
-            .HasKey(f => f.Id);
-        modelBuilder.Entity<Follow>()
-            .HasIndex(f => new { f.FollowerId, f.FollowingId })
-            .IsUnique();
+            .HasKey(f => new { f.FollowerId, f.FollowingId }); // composite PK
+
         modelBuilder.Entity<Follow>()
             .HasOne(f => f.Follower)
-            .WithMany(u => u.Followers)
+            .WithMany(u => u.Followings)
             .HasForeignKey(f => f.FollowerId)
             .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Follow>()
             .HasOne(f => f.Following)
-            .WithMany(u => u.Followings)
+            .WithMany(u => u.Followers)
             .HasForeignKey(f => f.FollowingId)
             .OnDelete(DeleteBehavior.Cascade);
 

@@ -38,13 +38,13 @@ const ButtonFollow = ({ targetUserId, style = "" }: ButtonFollowProps) => {
     <button
       onClick={handleToggle}
       disabled={loading}
-      className={`px-3 py-2 rounded-lg mt-3 transition duration-200 ${
+      className={`px-3 py-1.5 sm:py-2 rounded-lg mt-3 transition duration-200 ${
         isFollowing
           ? "border border-black bg-white text-black"
           : "bg-slate-900 text-white"
       } ${loading ? "opacity-50 cursor-not-allowed" : ""} ${style}`}
     >
-      <p className="font-bold">
+      <p className="font-bold text-xs sm:text-sm">
         {loading ? "Đang xử lý..." : isFollowing ? "Đang theo dõi" : "Theo dõi"}
       </p>
     </button>

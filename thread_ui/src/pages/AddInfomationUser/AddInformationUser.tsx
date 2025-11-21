@@ -81,14 +81,14 @@ const AddInformationUser: React.FC = () => {
   }
 
   return (
-    <div className="add-information-user">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="flex justify-center items-center gap-10">
-          <div>
-            <h1 className="whitespace-nowrap">
+    <div className="add-information-user px-4 sm:px-0 overflow-y-auto">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-10">
+          <div className="w-full lg:w-auto">
+            <h1 className="text-lg sm:text-xl lg:text-2xl text-center lg:text-left mb-3">
               Bạn sẽ được hiển thị dưới dạng
             </h1>
-            <div className="border border-gray-400 p-5 rounded-3xl">
+            <div className="border border-gray-400 p-4 sm:p-5 rounded-3xl">
               <div className="flex flex-col gap-10">
                 <div className="flex items-start gap-10 h-[250px]">
                   <div>

@@ -108,11 +108,11 @@ const PostInfo: React.FC = () => {
   };
 
   return (
-    <div className="w-[90vh] max-w-[90vh] mt-5">
-      <div className="text-center mb-5">
-        <h3>Thread</h3>
+    <div className="w-full max-w-3xl mx-auto mt-3 sm:mt-5 px-2 sm:px-4">
+      <div className="text-center mb-3 sm:mb-5">
+        <h3 className="text-lg sm:text-xl font-semibold">Thread</h3>
       </div>
-      <div className="border border-slate-200 rounded-xl w-[90vh]">
+      <div className="border-0 sm:border border-slate-200 rounded-none sm:rounded-xl w-full">
         {loading ? (
           <div className="flex justify-center py-10">
             <CircularProgress />
@@ -160,20 +160,20 @@ const PostInfo: React.FC = () => {
         )}
 
         {user.username && (
-          <div className="flex flex-row items-center gap-3 px-5 py-2 fixed bottom-0 z-10 bg-white border border-slate-200 rounded-t-lg w-[90vh] max-w-[90vh]">
+          <div className="flex flex-row items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 fixed bottom-16 sm:bottom-0 left-0 right-0 z-10 bg-white border-t border-slate-200 rounded-t-none sm:rounded-t-lg max-w-3xl mx-auto">
             <Link to={`/profile/${user.username}`}>
               <img
-                className="w-[30px] min-w-[30px] h-[30px] rounded-full object-cover"
+                className="w-8 min-w-[32px] h-8 sm:w-[30px] sm:min-w-[30px] sm:h-[30px] rounded-full object-cover"
                 src={user.avatarURL}
                 alt="Avatar"
               />
             </Link>
             <form
-              className="flex items-center justify-between w-full"
+              className="flex items-center justify-between w-full gap-2"
               onSubmit={submitComment}
             >
               <input
-                className="text-sm text-slate-500 w-full outline-none"
+                className="text-xs sm:text-sm text-slate-500 w-full outline-none"
                 placeholder={`Trả lời @${post?.user.username}...`}
                 value={commentInput}
                 onChange={(e) => setCommentInput(e.target.value)}
@@ -181,9 +181,9 @@ const PostInfo: React.FC = () => {
               <button
                 type="submit"
                 disabled={!commentInput || !commentInput.trim()}
-                className="border py-1 px-2 border-black rounded-lg hover:bg-black transition ease-in-out duration-200 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
+                className="border py-1 px-2 border-black rounded-lg hover:bg-black transition ease-in-out duration-200 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500 text-xs sm:text-sm whitespace-nowrap"
               >
-                <small>Comment</small>
+                Comment
               </button>
             </form>
           </div>

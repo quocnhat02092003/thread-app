@@ -30,13 +30,13 @@ const Sidebar = () => {
   );
 
   return (
-    <div className="flex flex-col items-center justify-between py-5 border border-r-2 w-20 h-screen">
-      <div>
+    <div className="flex flex-row sm:flex-col items-center justify-around sm:justify-between py-3 sm:py-5 border-t sm:border-t-0 sm:border-r-2 w-full sm:w-20 h-16 sm:h-screen bg-white shadow-lg sm:shadow-none">
+      <div className="hidden sm:block">
         <Link to="/">
-          <PiThreadsLogoLight size="4em" />
+          <PiThreadsLogoLight size="3em" />
         </Link>
       </div>
-      <div className="flex flex-col items-center gap-5 my-10">
+      <div className="flex flex-row sm:flex-col items-center gap-4 sm:gap-5 sm:my-10 w-full sm:w-auto justify-around sm:justify-center">
         <Link
           to="/"
           title="Trang chủ"
@@ -122,7 +122,7 @@ const Sidebar = () => {
           />
         )}
       </div>
-      <div className="flex flex-col items-center gap-5">
+      <div className="hidden sm:flex flex-col items-center gap-5">
         {!user.username ? (
           <NoLoginDialog
             icon={<GoInfo size="1.8em" />}

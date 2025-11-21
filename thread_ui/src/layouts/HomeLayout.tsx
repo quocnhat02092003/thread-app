@@ -69,23 +69,32 @@ const HomeLayout: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-row w-full h-screen">
-      {/* Navbar */}
-      <div className="fixed">
+    <div className="flex flex-col sm:flex-row w-full min-h-screen bg-white">
+      {/* Sidebar - Fixed on desktop, bottom nav on mobile */}
+      <div className="hidden sm:block sm:fixed sm:left-0 sm:top-0 sm:h-screen z-20">
         <Sidebar />
       </div>
-      {/* Home-body */}
-      <div className="flex flex-row items-start justify-center w-full gap-5">
-        <div className="-ml-32">
+
+      {/* Main Content Area */}
+      <div className="flex flex-col sm:flex-row items-start justify-center w-full sm:pl-20 pb-16 sm:pb-0">
+        {/* Center Content - Expanded width for better content display */}
+        <div className="w-full max-w-3xl lg:max-w-4xl px-0 sm:px-4">
           <Outlet />
         </div>
+
+        {/* Right Column - No Login Card */}
         {!user.username && (
-          <div className="mt-16">
-            <div className="fixed">
+          <div className="hidden lg:block lg:mt-16 lg:ml-5">
+            <div className="sticky top-16">
               <NoLoginCard />
             </div>
           </div>
         )}
+      </div>
+
+      {/* Mobile Bottom Navigation */}
+      <div className="block sm:hidden fixed bottom-0 left-0 right-0 z-30">
+        <Sidebar />
       </div>
     </div>
   );

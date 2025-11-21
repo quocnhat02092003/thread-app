@@ -21,15 +21,15 @@ const UserList = (props: UserListProps) => {
 
   return (
     <div
-      className={`px-5 py-3 my-2 ${
+      className={`px-3 sm:px-5 py-3 my-2 ${
         props.lastUser ? "" : "border-b"
       } border-slate-300`}
     >
-      <div className="flex flex-row items-start gap-3">
+      <div className="flex flex-row items-start gap-2 sm:gap-3">
         <div className="">
           <Link to={`/profile/${props.username}`}>
             <img
-              className="w-[50px] min-w-[50px] h-[50px] rounded-[50%] object-cover"
+              className="w-10 min-w-[40px] h-10 sm:w-[50px] sm:min-w-[50px] sm:h-[50px] rounded-full object-cover"
               src={props.avatarURL}
               alt="Avatar"
             />
@@ -48,7 +48,7 @@ const UserList = (props: UserListProps) => {
                   introduction={props.introduction}
                   isVerified
                 />
-                <span className="text-sm w-40 truncate">
+                <span className="text-xs sm:text-sm w-32 sm:w-40 truncate">
                   {props.displayName}
                 </span>
               </div>
@@ -56,8 +56,12 @@ const UserList = (props: UserListProps) => {
                 <ButtonFollow targetUserId={props.id} />
               )}
             </div>
-            <p className="text-sm mb-2">{props.introduction}</p>
-            <p className="text-sm mb-2">{props.follower} người theo dõi</p>
+            <p className="text-xs sm:text-sm mb-2 line-clamp-2">
+              {props.introduction}
+            </p>
+            <p className="text-xs sm:text-sm mb-2">
+              {props.follower} người theo dõi
+            </p>
           </div>
         </div>
       </div>

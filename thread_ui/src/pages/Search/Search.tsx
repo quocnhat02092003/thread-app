@@ -32,11 +32,11 @@ const Search: React.FC = () => {
     searchUser();
   }, [searchDebounced]);
   return (
-    <div>
-      <div className="text-center my-5">
-        <h3>Tìm kiếm</h3>
+    <div className="w-full">
+      <div className="text-center my-3 sm:my-5">
+        <h3 className="text-lg sm:text-xl font-semibold">Tìm kiếm</h3>
       </div>
-      <div className="w-[90vh] max-w-[90vh] border border-slate-200 px-5 py-5 rounded-md">
+      <div className="w-full px-3 sm:px-5 py-3 sm:py-5 border-0 sm:border border-slate-200 rounded-none sm:rounded-md">
         <TextField
           onChange={(
             e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

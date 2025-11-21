@@ -55,10 +55,12 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className="login-form">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="flex flex-col items-center w-fit gap-5">
-          <h2>Đăng nhập bằng tài khoản Threads</h2>
+    <div className="login-form px-4 sm:px-0">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
+        <div className="flex flex-col items-center w-full gap-4 sm:gap-5">
+          <h2 className="text-xl sm:text-2xl font-bold text-center">
+            Đăng nhập bằng tài khoản Threads
+          </h2>
           <form
             onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
               HandleSubmitFormLogin(event)

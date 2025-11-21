@@ -2,8 +2,6 @@ using thread_server.Models;
 
 public class Follow
 {
-    public Guid Id { get; set; }
-
     public Guid FollowerId { get; set; }
     public User Follower { get; set; }
 

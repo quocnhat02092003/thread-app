@@ -146,7 +146,7 @@ const Notifications: React.FC = () => {
 
   // Render functions
   const renderTabs = () => (
-    <div className="flex gap-2 mb-6 border-b border-gray-200">
+    <div className="flex gap-1 sm:gap-2 mb-4 sm:mb-6 border-b border-gray-200 overflow-x-auto">
       {NOTIFICATION_TABS.map((tab) => {
         const count = getTabCount(tab.key);
         const isActive = activeTab === tab.key;
@@ -155,7 +155,7 @@ const Notifications: React.FC = () => {
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`px-4 py-2 text-sm font-medium rounded-t-lg transition-colors relative ${
+            className={`px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-t-lg transition-colors relative whitespace-nowrap ${
               isActive
                 ? "text-blue-600 border-b-2 border-blue-600 bg-blue-50"
                 : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
@@ -285,10 +285,12 @@ const Notifications: React.FC = () => {
   const filteredNotifications = getFilteredNotifications();
 
   return (
-    <div className="flex flex-col items-center">
-      <h3 className="font-bold text-gray-800 mb-5">Thông báo</h3>
+    <div className="flex flex-col items-center w-full">
+      <h3 className="font-bold text-gray-800 mb-3 sm:mb-5 text-lg sm:text-xl">
+        Thông báo
+      </h3>
 
-      <div className="w-[90vh] max-w-[90vh] border border-slate-200 px-5 py-5 rounded-md bg-white shadow-sm">
+      <div className="w-full border-0 sm:border border-slate-200 px-3 sm:px-5 py-3 sm:py-5 rounded-none sm:rounded-md bg-white shadow-none sm:shadow-sm">
         {renderTabs()}
 
         <div className="space-y-3 max-h-[60vh] overflow-y-auto">

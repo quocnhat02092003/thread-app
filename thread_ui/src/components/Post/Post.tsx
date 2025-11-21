@@ -73,23 +73,23 @@ const Post = (props: PostProps) => {
       className={
         props.style
           ? props.style
-          : "border border-slate-200 px-5 py-5 rounded-lg mb-2"
+          : "border border-slate-200 px-3 sm:px-5 py-3 sm:py-5 rounded-lg mb-2"
       }
     >
-      <div className="flex flex-row items-start gap-3">
+      <div className="flex flex-row items-start gap-2 sm:gap-3">
         <div className="relative cursor-pointer" onClick={handleOpen}>
           <img
-            className="w-[50px] min-w-[50px] h-[50px] rounded-[50%] object-cover"
+            className="w-10 min-w-[40px] h-10 sm:w-[50px] sm:min-w-[50px] sm:h-[50px] rounded-full object-cover"
             src={props.avatarURL || "https://i.pravatar.cc/150?img=3"}
             alt="Avatar"
           />
           {user.username !== props.username && !isFollowing && (
-            <div className="absolute bottom-0 right-0 bg-white rounded-[50%]">
+            <div className="absolute bottom-0 right-0 bg-white rounded-full">
               <AiFillPlusCircle size="1.2em" />
             </div>
           )}
         </div>
-        <div className="w-full ">
+        <div className="w-full min-w-0">
           <div className="flex flex-row items-center gap-2">
             <UserItem
               id={props.postUser.id}
@@ -111,12 +111,16 @@ const Post = (props: PostProps) => {
           {props.postImage?.length !== 0 && (
             <Swiper
               effect={"coverflow"}
-              slidesPerView={2}
+              slidesPerView={1}
               spaceBetween={10}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 2 },
+              }}
               grabCursor={true}
               pagination={true}
               modules={[Pagination]}
-              className="w-[70vh] overflow-hidden mt-4"
+              className="w-full max-w-full sm:max-w-[70vh] overflow-hidden mt-4"
             >
               {props.postImage?.map((image, index) => (
                 <SwiperSlide key={index}>

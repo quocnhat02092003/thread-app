@@ -25,11 +25,15 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-200">
-      <div className="auth-header">
+      <div className="auth-header overflow-hidden">
         {/*Header*/}
-        <img className="mt-[-50px]" src={image_auth_login} alt="Image" />
+        <img
+          className="mt-[-50px] sm:mt-[-30px] w-full h-auto object-cover"
+          src={image_auth_login}
+          alt="Image"
+        />
       </div>
-      <div className="auth-body">
+      <div className="auth-body px-4 sm:px-0">
         {/*Main Content*/}
         <main>{children}</main>
       </div>

@@ -13,7 +13,9 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:5277/api/auth/check", { withCredentials: true }) // nhớ withCredentials để gửi cookie
+      .get(`${process.env.REACT_APP_API_URL}/api/auth/check`, {
+        withCredentials: true,
+      }) // nhớ withCredentials để gửi cookie
       .then(() => setIsAuthenticated(true))
       .catch(() => setIsAuthenticated(false));
   }, []);

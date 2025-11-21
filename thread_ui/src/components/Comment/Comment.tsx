@@ -60,13 +60,13 @@ const Comment = (props: CommentProps) => {
       className={
         props.style
           ? props.style
-          : "border border-slate-200 px-5 py-5 rounded-lg mb-2"
+          : "border border-slate-200 px-3 sm:px-5 py-3 sm:py-5 rounded-lg mb-2"
       }
     >
-      <div className="flex flex-row items-start gap-3">
+      <div className="flex flex-row items-start gap-2 sm:gap-3">
         <div className="relative cursor-pointer" onClick={handleOpen}>
           <img
-            className="w-[40px] min-w-[40px] h-[40px] rounded-[50%] object-cover"
+            className="w-8 min-w-[32px] h-8 sm:w-[40px] sm:min-w-[40px] sm:h-[40px] rounded-full object-cover"
             src={props.user.avatarURL}
             alt="Avatar"
           />

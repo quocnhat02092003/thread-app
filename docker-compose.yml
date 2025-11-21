@@ -8,7 +8,7 @@ services:
     ports:
       - "5277:8080"
     environment:
-      - ConnectionStrings__DefaultConnection=Server=mysql-db;Port=3306;Database=thread_clone;User=root;Password=nhatfc123;
+      - ConnectionStrings__DefaultConnection=Server=<HOST>;Port=<PORT>;Database=defaultdb;Uid=avnadmin;Pwd=<PASSWORD>;SslMode=Required;
     depends_on:
       mysql-db:
         condition: service_healthy

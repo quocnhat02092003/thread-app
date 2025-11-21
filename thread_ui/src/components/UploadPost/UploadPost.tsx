@@ -19,14 +19,14 @@ const UploadPost = (props: UploadPostProps) => {
       className={
         props.style
           ? props.style
-          : "border border-slate-200 px-5 py-5 rounded-lg mb-2 overflow-hidden"
+          : "border border-slate-200 px-3 sm:px-5 py-3 sm:py-5 rounded-lg mb-2 overflow-hidden"
       }
     >
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center gap-2 sm:gap-3">
         <div className="">
           <Link to={`/profile/${user.username}`}>
             <img
-              className="w-[50px] min-w-[50px] h-[50px] rounded-[50%] object-cover"
+              className="w-10 min-w-[40px] h-10 sm:w-[50px] sm:min-w-[50px] sm:h-[50px] rounded-full object-cover"
               src={user.avatarURL}
               alt="Avatar"
             />
@@ -37,9 +37,9 @@ const UploadPost = (props: UploadPostProps) => {
         </div>
         <button
           onClick={handleOpen}
-          className="border border-slate-300 px-2 py-2 rounded-lg"
+          className="border border-slate-300 px-2 sm:px-3 py-1 sm:py-2 rounded-lg text-xs sm:text-sm whitespace-nowrap"
         >
-          <small>Đăng</small>
+          Đăng
         </button>
         <DialogUploadPost open={open} handleClose={handleClose} />
       </div>

@@ -72,6 +72,7 @@ public class AuthController : ControllerBase
 
         Response.Cookies.Append("accessToken", accessToken, new CookieOptions
         {
+            Path = "/",
             HttpOnly = true,
             Secure = true,
             SameSite = SameSiteMode.None,
@@ -80,6 +81,7 @@ public class AuthController : ControllerBase
 
         Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
         {
+            Path = "/",
             HttpOnly = true,
             Secure = true,
             SameSite = SameSiteMode.None,
@@ -127,6 +129,7 @@ public class AuthController : ControllerBase
 
         Response.Cookies.Append("accessToken", newAccessToken, new CookieOptions
         {
+            Path = "/",
             HttpOnly = true,
             Secure = true,
             SameSite = SameSiteMode.None,
@@ -227,8 +230,20 @@ public class AuthController : ControllerBase
         _context.RefreshTokens.RemoveRange(userTokens);
         await _context.SaveChangesAsync();
 
-        Response.Cookies.Delete("accessToken");
-        Response.Cookies.Delete("refreshToken");
+        Response.Cookies.Delete("accessToken", new CookieOptions
+        {
+            Path = "/",
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.None
+        });
+        Response.Cookies.Delete("refreshToken", new CookieOptions
+        {
+            Path = "/",
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.None
+        });
 
         return Ok(new { Message = "Đăng xuất thành công." });
     }

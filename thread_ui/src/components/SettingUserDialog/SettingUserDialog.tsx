@@ -208,8 +208,8 @@ const SettingUserDialog = () => {
       const response = await LogoutUser();
       if (response) {
         enqueueSnackbar(response.message, { variant: "success" });
-        navigate("/login");
         dispatch(logout());
+        navigate("/login");
       }
     } catch (error: any) {
       error.response &&

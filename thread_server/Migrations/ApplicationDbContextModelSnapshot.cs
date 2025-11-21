@@ -60,25 +60,18 @@ namespace thread_server.Migrations
 
             modelBuilder.Entity("Follow", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<Guid>("FollowerId")
                         .HasColumnType("char(36)");
 
                     b.Property<Guid>("FollowingId")
                         .HasColumnType("char(36)");
 
-                    b.HasKey("Id");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("FollowerId", "FollowingId");
 
                     b.HasIndex("FollowingId");
-
-                    b.HasIndex("FollowerId", "FollowingId")
-                        .IsUnique();
 
                     b.ToTable("Follows");
                 });
@@ -295,13 +288,13 @@ namespace thread_server.Migrations
             modelBuilder.Entity("Follow", b =>
                 {
                     b.HasOne("thread_server.Models.User", "Follower")
-                        .WithMany("Followers")
+                        .WithMany("Followings")
                         .HasForeignKey("FollowerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("thread_server.Models.User", "Following")
-                        .WithMany("Followings")
+                        .WithMany("Followers")
                         .HasForeignKey("FollowingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

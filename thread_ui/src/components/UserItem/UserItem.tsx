@@ -34,7 +34,7 @@ const UserItem = (props: UserItemProps) => {
         </p>
       </Link>
       {isHovered && (
-        <div className="absolute left-5 top-full w-[300px] z-[999] border border-slate-200 bg-white rounded-md shadow-lg p-5">
+        <div className="absolute left-0 sm:left-5 top-full w-[280px] sm:w-[300px] z-[999] border border-slate-200 bg-white rounded-md shadow-lg p-4 sm:p-5">
           <div className="flex flex-col">
             <div className="flex flex-row items-center justify-between gap-3">
               <Link
@@ -56,7 +56,7 @@ const UserItem = (props: UserItemProps) => {
                 <img
                   src={props.avatarURL || "https://i.pravatar.cc/150?img=3"}
                   alt="Avatar"
-                  className="w-[80px] h-[80px] rounded-[50%] object-cover"
+                  className="w-16 h-16 sm:w-[80px] sm:h-[80px] rounded-full object-cover"
                 />
               </div>
             </div>

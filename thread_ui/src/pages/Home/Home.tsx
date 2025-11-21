@@ -68,13 +68,15 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <div>
         <Link to="/">
-          <h3 className="text-center my-5">Trang chủ</h3>
+          <h3 className="text-center my-3 sm:my-5 text-lg sm:text-xl font-semibold">
+            Trang chủ
+          </h3>
         </Link>
       </div>
-      <div className="w-[90vh] mx-auto">
+      <div className="w-full max-w-[90vh] mx-auto px-2 sm:px-4">
         {user.username && <UploadPost />}
 
         {posts.length > 0 && (
