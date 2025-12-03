@@ -44,7 +44,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 //SQL Service
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection-Local");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
         connectionString,
@@ -60,12 +60,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         })
     );
 
-var allowedOrigins = builder.Configuration["FrontendUrl-Local"];
+var allowedOrigins = builder.Configuration["FrontendUrl"];
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins(allowedOrigins)
+        policy.WithOrigins(allowedOrigins!)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
